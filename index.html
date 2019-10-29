@@ -19,18 +19,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <!-- Firebase Reference -->
-    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/6.6.0/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/6.6.0/firebase-auth.js"></script>
-    <script defer src="/__/firebase/6.6.0/firebase-database.js"></script>
-    <!-- <script defer src="/__/firebase/6.6.0/firebase-messaging.js"></script> -->
-    <!-- <script defer src="/__/firebase/6.6.0/firebase-storage.js"></script> -->
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
 </head>
 <body>
     <!-- Navbar -->
@@ -48,36 +37,24 @@
                   <a class="nav-link" href="./pages/teams.html">Teams</a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" href="./pages/resources.html">Leaderboards</a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="./pages/resources.html">Resources</a>
                 </li>
               </ul>
           </nav>
 
     <!-- Landing div -->
-        <div class="landingDiv">
-          <div class="landingTextContainer">
-            <h1>Students</h1>
-            <!-- student cards -->
-            <div class="card text-white bg-dark" style="width: 18rem;">
-                <img src="./assets/images/abstract-bg1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Student Name</h5>
-                  <p class="card-text">General info</p>
-                  <a href="#" class="btn btn-primary">View in group</a>
-                </div>
-              </div>
+          <div class="landingContainer">
 
-              <div class="card text-white bg-dark" style="width: 18rem;">
-                <img src="./assets/images/abstract-bg1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Student Name</h5>
-                  <p class="card-text">General info</p>
-                  <a href="#" class="btn btn-primary">View in group</a>
-                </div>
-              </div>
+            <div class="jumbotron bg-dark landingItem1">
+              <h1 class="display-4">BQ Dashboard</h1>
+              <p class="lead">Welcome to the LPC Bible Quizzing Dashboard!</p>
+              <a class="btn btn-primary" href="#" role="button">Learn more</a>
+            </div>
 
           </div>
-        </div>
 
 
     <!-- Connect to JS file -->

@@ -2,8 +2,25 @@ body {
     background-color: #363640;
 }
 
-/* NAVBAR------------------------------------------------------------- */
-.navbar {
+  .bg-dark {
+    background-color: #212124 !important;
+  }
+
+  .landingItem1 {
+    grid-area: "welcome";
+  }
+
+  .landingContainer {
+    display: grid;
+      grid-template-columns: 50% 50%;
+      grid-template-rows: auto;
+      grid-template-areas: 
+      "welcome teamsPreview";
+    margin: 80px 2% 0 2%;
+    color: white;
+  }
+
+  .navbar {
     background-color: #363640 !important;
     border-bottom: #00aced solid 4px;
     margin: auto;
@@ -24,14 +41,6 @@ body {
   
   .navbar-toggler:focus {
     outline: none;
-  }
-
-  /* Landing -------------------------------------------------------- */
-  .landingDiv {
-      display: flex;
-      text-align: center;
-      margin: 80px 0 0 0;
-      color: white;
   }
 
   /* MEDIA QUERIES ///////////////////////////////////////////////////// */
