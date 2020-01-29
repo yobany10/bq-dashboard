@@ -7,17 +7,55 @@ body {
   }
 
   .landingItem1 {
-    grid-area: "welcome";
+    grid-area: welcome;
+  }
+
+  .landingItem2 {
+    grid-area: addQuizzer;
   }
 
   .landingContainer {
     display: grid;
-      grid-template-columns: 50% 50%;
-      grid-template-rows: auto;
-      grid-template-areas: 
-      "welcome teamsPreview";
+    grid-template-columns: 25% 25% 2% 48%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "welcome welcome . addQuizzer";
     margin: 80px 2% 0 2%;
     color: white;
+  }
+
+  .teamsItem1 {
+    grid-area: teamsHeader;
+    background-color: #212124 !important;
+    padding: 2rem;
+    border-radius: 5px;
+  }
+
+  .teamsItem2 {
+    grid-area: teamsList;
+  }
+
+  .teamsItem3 {
+    grid-area: teamsOptionList;
+    background-color: #212124 !important;
+    padding: 2rem;
+    border-radius: 5px;
+  }
+
+  .teamsContainer {
+    display: grid;
+    grid-template-columns: 25% 25% 2% 48%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "teamsHeader teamsHeader . teamsList"
+    ". . . teamsList"
+    "teamsOptionList teamsOptionList . teamsList";
+    margin: 80px 2% 0 2%;
+    color: white;
+  }
+
+  .teamsList li {
+    background-color: #212124 !important;
   }
 
   .navbar {
