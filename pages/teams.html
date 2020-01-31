@@ -49,11 +49,21 @@
 
             <div class="teamsItem1">
               <h5>Charlotte BQ Teams</h5>
-              <p>We currently have 7 Bible Quizzing teams!</p>
+              <p>We currently have 7 Bible Quizzing teams!</p><br>
+              <ul class="list-group teamsList teamsItem2">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  The next junior tournament will be on the 8th of this month.
+                  <span class="badge badge-warning badge-pill" title="number of quizzers">8th</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  The next senior tournament will be on the 15th of this month.
+                  <span class="badge badge-warning badge-pill" title="number of quizzers">15th</span>
+                </li>
+              </ul>
             </div>
             
             <div class="teamsItem3">
-              <a href="#" class="btn btn-primary"><i class="material-icons" title="add a team">add</i></a>
+              <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addTeamModal"><i class="material-icons" title="add a team">add</i></a>
               <a href="#" class="btn btn-primary"><i class="material-icons" title="edit a team">edit</i></a>
               <a href="#" class="btn btn-primary"><i class="material-icons" title="stats">list</i></a>
               <a href="https://docs.google.com/spreadsheets/d/1vNrcuAofi4VjVhOiac4h1XJb3lWoD1QwrRIBW5fFTl0" class="btn btn-primary" target="_blank"><i class="material-icons" title="upcoming tournaments">event</i></a>
@@ -62,39 +72,91 @@
             <ul class="list-group teamsList teamsItem2">
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 LPC1
-                <span class="badge badge-warning badge-pill" title="number of quizzers">4</span>
+                <span class="badge badge-warning badge-pill" title="number of quizzers">4 quizzers</span>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 LPC2
-                <span class="badge badge-warning badge-pill" title="number of quizzers">4</span>
+                <span class="badge badge-warning badge-pill" title="number of quizzers">4 quizzers</span>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 LPC3
-                <span class="badge badge-warning badge-pill" title="number of quizzers">3</span>
+                <span class="badge badge-warning badge-pill" title="number of quizzers">3 quizzers</span>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 LPC4
-                <span class="badge badge-warning badge-pill" title="number of quizzers">3</span>
+                <span class="badge badge-warning badge-pill" title="number of quizzers">3 quizzers</span>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 LPC5
-                <span class="badge badge-warning badge-pill" title="number of quizzers">4</span>
+                <span class="badge badge-warning badge-pill" title="number of quizzers">4 quizzers</span>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 LPC6
-                <span class="badge badge-warning badge-pill" title="number of quizzers">3</span>
+                <span class="badge badge-warning badge-pill" title="number of quizzers">3 quizzers</span>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 LPC7
-                <span class="badge badge-warning badge-pill" title="number of quizzers">2</span>
+                <span class="badge badge-warning badge-pill" title="number of quizzers">2 quizzers</span>
               </li>
             </ul>
+        </div>
 
+        <!-- Add team modal -->
+        <div class="modal" id="addTeamModal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content dark-modal-content">
+              <div class="modal-header dark-modal-header">
+                <h5 class="modal-title">Add a team</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <!-- Team name input -->
+                  <form>
+                    <div class="form-group addTeamForm">
+                      <label for="rTeamName">Team 1</label>
+                      <input class="form-control" type="text" placeholder="red team" id="rTeamName">
+                      <label for="yTeamName">Team 2</label>
+                      <input class="form-control" type="text" placeholder="yellow team" id="yTeamName"> 
+                    </div>
+                  </form>
+              </div>
+              <div class="modal-footer dark-modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button class="btn btn-primary" data-dismiss="modal" onclick="writeQuiz()">Submit</button>
+              </div>
+            </div>
+          </div>
         </div>
 
 
     <!-- Connect to JS file -->
-    <script src="./assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCMGwqr9TXCHKXhhPH76oIfqXgxHLxH0ew",
+    authDomain: "bq-dashboard-4cbc9.firebaseapp.com",
+    databaseURL: "https://bq-dashboard-4cbc9.firebaseio.com",
+    projectId: "bq-dashboard-4cbc9",
+    storageBucket: "bq-dashboard-4cbc9.appspot.com",
+    messagingSenderId: "156585888675",
+    appId: "1:156585888675:web:d66ed9c34de8c6da74e816",
+    measurementId: "G-PNPM35EZYQ"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
 
 </body>
 </html>

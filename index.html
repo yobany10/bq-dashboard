@@ -62,9 +62,41 @@
 
           </div>
 
+    <!-- User input -->
+          <input type="text" placeholder="name" id="nameField">
+          <input type="text" placeholder="age" id="ageField"> 
+          <button class="btn btn-primary" onclick="writeData()">Submit</button>
+
+    <!-- User display -->
+          <p id="data"></p>
+
 
     <!-- Connect to JS file -->
     <script src="./assets/js/main.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCMGwqr9TXCHKXhhPH76oIfqXgxHLxH0ew",
+    authDomain: "bq-dashboard-4cbc9.firebaseapp.com",
+    databaseURL: "https://bq-dashboard-4cbc9.firebaseio.com",
+    projectId: "bq-dashboard-4cbc9",
+    storageBucket: "bq-dashboard-4cbc9.appspot.com",
+    messagingSenderId: "156585888675",
+    appId: "1:156585888675:web:d66ed9c34de8c6da74e816",
+    measurementId: "G-PNPM35EZYQ"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
 
 </body>
 </html>

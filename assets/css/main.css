@@ -6,6 +6,19 @@ body {
     background-color: #212124 !important;
   }
 
+  .dark-modal-content {
+    background-color: #363640;
+    color: white;
+  }
+
+  .dark-modal-header {
+    border-bottom: 2px solid #00aced;
+  }
+
+  .dark-modal-footer {
+    border-top: 2px solid #00aced;
+  }
+
   .landingItem1 {
     grid-area: welcome;
   }
