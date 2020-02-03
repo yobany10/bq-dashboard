@@ -2,6 +2,11 @@ body {
     background-color: #363640;
 }
 
+.material-icons {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
   .bg-dark {
     background-color: #212124 !important;
   }
@@ -17,6 +22,10 @@ body {
 
   .dark-modal-footer {
     border-top: 2px solid #00aced;
+  }
+
+  #addTeamModal {
+    /* background-color: #363640; */
   }
 
   .landingItem1 {
@@ -70,12 +79,13 @@ body {
 
   .teamsList li {
     background-color: #212124 !important;
+    border-left: 5px solid #ffc107;
     margin-bottom: 2%;
   }
 
   .teamsList li:hover {
     /* background-color: #00aced !important; */
-    border-left: 5px solid #ffc107;
+    border-left: 5px solid #00aced;
     cursor: pointer;
   }
 

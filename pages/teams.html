@@ -103,28 +103,57 @@
 
         <!-- Add team modal -->
         <div class="modal" id="addTeamModal" tabindex="-1" role="dialog">
-          <div class="modal-dialog" role="document">
+          <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content dark-modal-content">
               <div class="modal-header dark-modal-header">
-                <h5 class="modal-title">Add a team</h5>
+                <h5 class="modal-title"><i class="material-icons" title="add a team">add</i> Add a team</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
+
                 <!-- Team name input -->
                   <form>
                     <div class="form-group addTeamForm">
-                      <label for="rTeamName">Team 1</label>
-                      <input class="form-control" type="text" placeholder="red team" id="rTeamName">
-                      <label for="yTeamName">Team 2</label>
-                      <input class="form-control" type="text" placeholder="yellow team" id="yTeamName"> 
+                      <div class="form-group">
+                        <label for="addTeamType">Team type</label>
+                        <select class="form-control" id="addTeamType">
+                          <option>Beginner</option>
+                          <option>Junior</option>
+                          <option>Senior</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="addTeamName">Team name</label>
+                        <input class="form-control" type="text" placeholder="CharlotteOne" id="addTeamName"> 
+                      </div>
+                      <div class="form-group">
+                        <label for="addQuizzer1">Quizzer 1</label>
+                        <input class="form-control" type="text" placeholder="first and last name" id="addQuizzer1"> 
+                      </div>
+                      <div class="form-group">
+                        <label for="addQuizzer2">Quizzer 2</label>
+                        <input class="form-control" type="text" placeholder="first and last name" id="addQuizzer2"> 
+                      </div>
+                      <div class="form-group">
+                        <label for="addQuizzer3">Quizzer 3</label>
+                        <input class="form-control" type="text" placeholder="first and last name" id="addQuizzer3"> 
+                      </div>
+                      <div class="form-group">
+                        <label for="addQuizzer4">Quizzer 4</label>
+                        <input class="form-control" type="text" placeholder="first and last name" id="addQuizzer4"> 
+                      </div>
+                      <div class="form-group">
+                        <label for="addQuizzer5">Quizzer 5</label>
+                        <input class="form-control" type="text" placeholder="first and last name" id="addQuizzer5"> 
+                      </div>
                     </div>
                   </form>
               </div>
               <div class="modal-footer dark-modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button class="btn btn-primary" data-dismiss="modal" onclick="writeQuiz()">Submit</button>
+                <button class="btn btn-primary" data-dismiss="modal" onclick="writeNewTeam()">Submit</button>
               </div>
             </div>
           </div>
