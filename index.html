@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BQ Dashboard</title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js"></script>
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -19,7 +24,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
 </head>
 <body>
     <!-- Navbar -->
@@ -31,13 +35,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="./index.html">BQ Dashboard <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="index.html">BQ Dashboard <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="./pages/teams.html">Teams</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="./pages/resources.html">Leaderboards</a>
+                  <a class="nav-link" href="./pages/quiz.html">Quiz</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="./pages/resources.html">Resources</a>
@@ -46,57 +50,107 @@
           </nav>
 
     <!-- Landing div -->
-          <div class="landingContainer">
+        <div class="teamsContainer">
 
-            <div class="jumbotron bg-dark landingItem1">
-              <h3>BQ Dashboard</h3>
-              <p>Welcome to the LPC Bible Quizzing Dashboard!</p>
-              <a class="btn btn-primary" href="#" role="button">Learn more</a>
+            <div class="teamsItem1">
+              <h5>Charlotte BQ Teams</h5>
+              <p>We currently have 7 Bible Quizzing teams!</p><br>
+              <ul class="list-group teamsList teamsItem2">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  The next junior tournament will be on the 8th of this month.
+                  <span class="badge badge-warning badge-pill" title="number of quizzers">8th</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  The next senior tournament will be on the 15th of this month.
+                  <span class="badge badge-warning badge-pill" title="number of quizzers">15th</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="teamsItem3">
+              <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addTeamModal"><i class="material-icons" title="add a team">add</i></a>
+              <a href="#" class="btn btn-primary"><i class="material-icons" title="edit a team">edit</i></a>
+              <a href="#" class="btn btn-primary"><i class="material-icons" title="stats">list</i></a>
+              <a href="https://docs.google.com/spreadsheets/d/1vNrcuAofi4VjVhOiac4h1XJb3lWoD1QwrRIBW5fFTl0" class="btn btn-primary" target="_blank"><i class="material-icons" title="upcoming tournaments">event</i></a>
             </div>
 
-            <div class="jumbotron bg-dark landingItem2">
-              <h3>Want to add a quizzer?</h3>
-              <p>You can add quizzers to your class</p>
-              <a class="btn btn-primary" href="#" role="button">Add Quizzer</a>
-            </div>
+            <ul class="list-group teamsList teamsItem2" id="teamsList">
+              <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
+                LPC1
+                <span class="badge badge-warning badge-pill" title="number of quizzers">4 quizzers</span>
+              </li> -->
+            </ul>
+        </div>
 
+        <!-- Add team modal -->
+        <div class="modal" id="addTeamModal" tabindex="-1" role="dialog">
+          <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content dark-modal-content">
+              <div class="modal-header dark-modal-header">
+                <h5 class="modal-title"><i class="material-icons" title="add a team">add</i> Add a team</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <!-- Team name input -->
+                  <form>
+                    <div class="form-group addTeamForm">
+                      <div class="form-group">
+                        <label for="addTeamType">Team type</label>
+                        <select class="form-control" id="addTeamType">
+                          <option>Beginner</option>
+                          <option>Junior</option>
+                          <option>Senior</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="addTeamName">Team name</label>
+                        <input class="form-control" type="text" placeholder="CharlotteOne" id="addTeamName"> 
+                      </div>
+                      <div class="form-group">
+                        <label for="addTeamName">Head coach</label>
+                        <input class="form-control" type="text" placeholder="first and last name" id="addCoach1"> 
+                      </div>
+                      <div class="form-group">
+                        <label for="addTeamName">Assistant coach</label>
+                        <input class="form-control" type="text" placeholder="first and last name" id="addCoach2"> 
+                      </div>
+                      <div class="form-group">
+                        <label for="addQuizzer1">Quizzer 1</label>
+                        <input class="form-control" type="text" placeholder="first and last name" id="addQuizzer1"> 
+                      </div>
+                      <div class="form-group">
+                        <label for="addQuizzer2">Quizzer 2</label>
+                        <input class="form-control" type="text" placeholder="first and last name" id="addQuizzer2"> 
+                      </div>
+                      <div class="form-group">
+                        <label for="addQuizzer3">Quizzer 3</label>
+                        <input class="form-control" type="text" placeholder="first and last name" id="addQuizzer3"> 
+                      </div>
+                      <div class="form-group">
+                        <label for="addQuizzer4">Quizzer 4</label>
+                        <input class="form-control" type="text" placeholder="first and last name" id="addQuizzer4"> 
+                      </div>
+                      <div class="form-group">
+                        <label for="addQuizzer5">Quizzer 5</label>
+                        <input class="form-control" type="text" placeholder="first and last name" id="addQuizzer5"> 
+                      </div>
+                    </div>
+                  </form>
+              </div>
+              <div class="modal-footer dark-modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button class="btn btn-primary" data-dismiss="modal" onclick="writeNewTeam()">Submit</button>
+              </div>
+            </div>
           </div>
-
-    <!-- User input -->
-          <input type="text" placeholder="name" id="nameField">
-          <input type="text" placeholder="age" id="ageField"> 
-          <button class="btn btn-primary" onclick="writeData()">Submit</button>
-
-    <!-- User display -->
-          <p id="data"></p>
+        </div>
 
 
     <!-- Connect to JS file -->
     <script src="./assets/js/main.js"></script>
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js"></script>
-
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyCMGwqr9TXCHKXhhPH76oIfqXgxHLxH0ew",
-    authDomain: "bq-dashboard-4cbc9.firebaseapp.com",
-    databaseURL: "https://bq-dashboard-4cbc9.firebaseio.com",
-    projectId: "bq-dashboard-4cbc9",
-    storageBucket: "bq-dashboard-4cbc9.appspot.com",
-    messagingSenderId: "156585888675",
-    appId: "1:156585888675:web:d66ed9c34de8c6da74e816",
-    measurementId: "G-PNPM35EZYQ"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-</script>
 
 </body>
 </html>
