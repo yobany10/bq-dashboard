@@ -1,9 +1,3 @@
-// tooltip global activation
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  })
-  $('#add-team-btn').tooltip('enable');
-
 // Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyCMGwqr9TXCHKXhhPH76oIfqXgxHLxH0ew",
