@@ -1,3 +1,9 @@
+// tooltip global activation
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+  $('#add-team-btn').tooltip('enable');
+
 // Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyCMGwqr9TXCHKXhhPH76oIfqXgxHLxH0ew",
@@ -117,3 +123,9 @@ function writeNewTeam() {
            document.getElementById("data").innerHTML = "Name: " + childData["name"] + "<br>" + "Age: " + childData["age"];
         })
     })
+
+    // Quiz interface logic
+    var team1Score = 0;
+    var team2Score = 0;
+    var team1Name = "";
+    var team2Name = "";
